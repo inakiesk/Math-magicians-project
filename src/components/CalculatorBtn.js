@@ -8,17 +8,19 @@ export default class CalculatorBtn extends React.Component {
   }
 
   render() {
-    const { value } = this.props;
+    const { value, styling } = this.props;
     return (
-      <button type="button">{ value }</button>
+      <button type="button" className={styling}>{ value }</button>
     );
   }
 }
 
 CalculatorBtn.defaultProps = {
   value: null,
+  styling: null,
 };
 
 CalculatorBtn.propTypes = {
   value: PropTypes.string,
+  styling: PropTypes.string,
 };
