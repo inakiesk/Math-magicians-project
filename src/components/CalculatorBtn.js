@@ -8,9 +8,9 @@ export default class CalculatorBtn extends React.Component {
   }
 
   render() {
-    const { value, styling } = this.props;
+    const { value, styling, clickEvent } = this.props;
     return (
-      <button type="button" className={styling}>{ value }</button>
+      <button type="button" className={styling} onClick={clickEvent}>{ value }</button>
     );
   }
 }
@@ -18,9 +18,11 @@ export default class CalculatorBtn extends React.Component {
 CalculatorBtn.defaultProps = {
   value: null,
   styling: null,
+  clickEvent: null,
 };
 
 CalculatorBtn.propTypes = {
   value: PropTypes.string,
   styling: PropTypes.string,
+  clickEvent: PropTypes.func,
 };
