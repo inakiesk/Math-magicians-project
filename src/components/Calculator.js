@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class Calculator extends React.Component {
   constructor(props) {
@@ -7,12 +7,15 @@ class Calculator extends React.Component {
       display: 0,
     };
   }
+
   render() {
     const { display } = this.state;
     return (
       <div className="calculator">
         { display }
       </div>
-    )
+    );
   }
 }
+
+export default Calculator;
