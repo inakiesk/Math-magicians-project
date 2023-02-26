@@ -1,45 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CalculatorBtn from './CalculatorBtn';
+import calculate from './logic/calculate';
 
-function Calculator() {
+const Calculator = () => {
+  const [obj, setObj] = useState({
+    total: '',
+    next: null,
+    operation: null,
+  });
+
+  const clickEvent = (e) => {
+    const data = e.target.innerText;
+    const state = calculate(obj, data);
+    setObj(state);
+  };
+
+  const { total, next, operation } = obj;
   return (
     <div className="calculator">
       <div className="displayScreen">
-        0
+        {total}
+        {operation}
+        {next}
       </div>
       <div className="calcBody">
         <div className="calcRow">
-          <CalculatorBtn value="AC" styling="calcBtn" />
-          <CalculatorBtn value="+/-" styling="calcBtn" />
-          <CalculatorBtn value="%" styling="calcBtn" />
-          <CalculatorBtn value="÷" styling="calcBtn operator" />
+          <CalculatorBtn value="AC" styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="+/-" styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="%" styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="÷" styling="calcBtn operator" clickEvent={clickEvent} />
         </div>
         <div className="calcRow">
-          <CalculatorBtn value="7" styling="calcBtn" />
-          <CalculatorBtn value="8" styling="calcBtn" />
-          <CalculatorBtn value="9" styling="calcBtn" />
-          <CalculatorBtn value="x" styling="calcBtn operator" />
+          <CalculatorBtn value="7" styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="8" styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="9" styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="x" styling="calcBtn operator" clickEvent={clickEvent} />
         </div>
         <div className="calcRow">
-          <CalculatorBtn value="4" styling="calcBtn" />
-          <CalculatorBtn value="5" styling="calcBtn" />
-          <CalculatorBtn value="6" styling="calcBtn" />
-          <CalculatorBtn value="-" styling="calcBtn operator" />
+          <CalculatorBtn value="4" styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="5" styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="6" styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="-" styling="calcBtn operator" clickEvent={clickEvent} />
         </div>
         <div className="calcRow">
-          <CalculatorBtn value="1" styling="calcBtn" />
-          <CalculatorBtn value="2" styling="calcBtn" />
-          <CalculatorBtn value="3" styling="calcBtn" />
-          <CalculatorBtn value="+" styling="calcBtn operator" />
+          <CalculatorBtn value="1" styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="2" styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="3" styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="+" styling="calcBtn operator" clickEvent={clickEvent} />
         </div>
         <div className="calcRow">
-          <CalculatorBtn value="0" styling="btn0" />
-          <CalculatorBtn value="." styling="calcBtn" />
-          <CalculatorBtn value="=" styling="calcBtn operator" />
+          <CalculatorBtn value="0" styling="btn0" clickEvent={clickEvent} />
+          <CalculatorBtn value="." styling="calcBtn" clickEvent={clickEvent} />
+          <CalculatorBtn value="=" styling="calcBtn operator" clickEvent={clickEvent} />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Calculator;
