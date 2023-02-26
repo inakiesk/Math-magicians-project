@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import CalculatorBtn from './CalculatorBtn';
 import calculate from './logic/calculate';
-import Navbar from './Navbar';
 
 const Calculator = () => {
   const [obj, setObj] = useState({
@@ -19,7 +18,6 @@ const Calculator = () => {
   const { total, next, operation } = obj;
   return (
     <div className="wrapper">
-      <Navbar />
       <div className="calculator-wrapper">
         <h3 className="calculator-header">
           Let&apos;s do some Math!

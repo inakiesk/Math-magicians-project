@@ -1,8 +1,5 @@
-import Navbar from './Navbar';
-
 const Home = () => (
   <div className="wrapper">
-    <Navbar />
     <div className="home">
       <h3 className="home-header">
         Welcome to our Page!
